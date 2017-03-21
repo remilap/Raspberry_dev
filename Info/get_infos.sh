@@ -32,7 +32,7 @@ if [ "$1" = "" ]; then
   awk -F: '{printf"%2s: %s\n",$1,$3}' ${infos_file}
   read rep
   [ "${rep}" = "" ] && exit 0
-  expr ${rep} + 0 > /dev/null 2>&1
+  expr ${rep} + 100 > /dev/null 2>&1
   if [ $? != 0 ]; then
     echo "The answer is not a number"
     exit 1
