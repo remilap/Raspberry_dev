@@ -12,6 +12,10 @@ def SetDebug(m):
 	if m == 0:
 		debug = 0
 
+# Get debug mode
+def GetDebug():
+	return debug
+
 # Set trace mode
 def SetTrace(t):
 	trace = 1

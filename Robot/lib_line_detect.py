@@ -7,14 +7,15 @@ import time
 import lib_util
 
 
+# Set variables for the GPIO motor pins
+pinLineFollower = 25
+
+
 # Init this library
 def Init():
 	# Set the GPIO modes
 	GPIO.setmode(GPIO.BCM)
 	GPIO.setwarnings(False)
-
-	# Set variables for the GPIO motor pins
-	pinLineFollower = 25
 
 	# Set pin 25 as an input so its value can be read
 	GPIO.setup(pinLineFollower, GPIO.IN)
