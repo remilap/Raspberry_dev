@@ -5,36 +5,36 @@
 
 import RPi.GPIO as GPIO # Import the GPIO Library
 import time
-import lib_motors_base
+import lib_motors_base as base
 
 
-lib_motors_base.Init()
+base.Init()
 
-lib_motors_base.StopMotors()
-lib_motors_base.Forwards()
+base.StopMotors()
+base.Forwards()
 time.sleep(0.2)
-lib_motors_base.StopMotors()
+base.StopMotors()
 time.sleep(0.5)
-lib_motors_base.Left()
+base.Left()
 time.sleep(0.2)
-lib_motors_base.StopMotors()
+base.StopMotors()
 time.sleep(0.5)
-lib_motors_base.Right()
+base.Right()
 time.sleep(0.2)
-lib_motors_base.StopMotors()
+base.StopMotors()
 time.sleep(0.5)
-lib_motors_base.LeftStay()
+base.LeftStay()
 time.sleep(0.2)
-lib_motors_base.StopMotors()
+base.StopMotors()
 time.sleep(0.5)
-lib_motors_base.RightStay()
+base.RightStay()
 time.sleep(0.2)
-lib_motors_base.StopMotors()
+base.StopMotors()
 time.sleep(0.5)
-lib_motors_base.Backwards()
+base.Backwards()
 time.sleep(0.2)
-lib_motors_base.StopMotors()
+base.StopMotors()
 
 
-lib_motors_base.End()
+base.End()
 

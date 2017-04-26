@@ -4,7 +4,7 @@
 
 import RPi.GPIO as GPIO # Import the GPIO Library
 import time
-import lib_util
+import lib_util as util
 
 
 # Set variables for the GPIO motor pins
@@ -55,7 +55,7 @@ def ForwardsRightMotor():
 def BackwardsRightMotor():
 	lib_util.Trace("lib_motors_base.BackwardsRightMotor")
 	GPIO.output(pinMotorRightForwards, 0)
-	if debug == 0:
+	if util.debug == 0:
 		GPIO.output(pinMotorRightBackwards, 1)
 
 # Turn the left motor forwards
@@ -69,7 +69,7 @@ def ForwardsLeftMotor():
 def BackwardsLeftMotor():
 	lib_util.Trace("lib_motors_base.BackwardsLeftMotor")
 	GPIO.output(pinMotorLeftForwards, 0)
-	if debug == 0:
+	if util.debug == 0:
 		GPIO.output(pinMotorLeftBackwards, 1)
 
 # Turn both motors forwards

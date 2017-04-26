@@ -8,7 +8,7 @@ import time
 
 # Set the GPIO modes
 GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(false)
+GPIO.setwarnings(False)
 
 # Define GPIO pins to use on the Pi
 pinTrigger = 17

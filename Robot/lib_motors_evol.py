@@ -4,16 +4,16 @@
 
 import RPi.GPIO as GPIO # Import the GPIO Library
 import time
-import lib_util
-import lib_motors_base
+import lib_util as util
+import lib_motors_base as base
 
 
 # How many times to turn the pin on and off each second
 Frequency = 20
 
 # How long the pin stays on each cycle, as a percent (here, it's 30%)
-DutyCycleLeft = 10
-DutyCycleRight = 10
+DutyCycleLeft = 31
+DutyCycleRight = 30
 
 # Setting the duty cycle to 0 means the motors will not turn
 Stop = 0
@@ -27,18 +27,20 @@ my_speed = 0
 
 # Init this library
 def Init():
-	global pwmMotorLeftForwards, pwmMotorLeftBackwards, pwmMotorRightForwards, pwmMotorRightBackwards
+        util.Trace("lib_motors_evol.Init")
+	base.Init()
 
-        lib_util.Trace("lib_motors_evol.Init")
-	if lib_util.GetDebug() > 0:
-		return
-	lib_motors_base.Init()
+	# Declare the PWM variables
+	global pwmMotorLeftForwards
+	global pwmMotorLeftBackwards
+	global pwmMotorRightForwards
+	global pwmMotorRightBackwards
 
 	# Set the GPIO to software PWM at 'Frequency' Hertz
-	pwmMotorLeftForwards = GPIO.PWM(lib_motors_base.pinMotorLeftForwards, Frequency)
-	pwmMotorLeftBackwards = GPIO.PWM(lib_motors_base.pinMotorLeftBackwards, Frequency)
-	pwmMotorRightForwards = GPIO.PWM(lib_motors_base.pinMotorRightForwards, Frequency)
-	pwmMotorRightBackwards = GPIO.PWM(lib_motors_base.pinMotorRightBackwards, Frequency)
+	pwmMotorLeftForwards = GPIO.PWM(base.pinMotorLeftForwards, Frequency)
+	pwmMotorLeftBackwards = GPIO.PWM(base.pinMotorLeftBackwards, Frequency)
+	pwmMotorRightForwards = GPIO.PWM(base.pinMotorRightForwards, Frequency)
+	pwmMotorRightBackwards = GPIO.PWM(base.pinMotorRightBackwards, Frequency)
 
 	# Start the software PWM with a duty cycle of 0 (i.e. not moving)
 	pwmMotorLeftForwards.start(Stop)
@@ -65,17 +67,25 @@ def getAbsSpeed():
 
 # Turn left motor off
 def StopLeftMotor():
+<<<<<<< HEAD
         lib_util.Trace("lib_motors_evol.StopLeftMotor")
 	if lib_util.GetDebug() > 0:
 		return
+=======
+        util.Trace("lib_motors_evol.StopLeftMotor")
+>>>>>>> Ajout Info/system_update.sh
 	pwmMotorLeftForwards.ChangeDutyCycle(Stop)
 	pwmMotorLeftBackwards.ChangeDutyCycle(Stop)
 
 # Turn right motor off
 def StopRightMotor():
+<<<<<<< HEAD
         lib_util.Trace("lib_motors_evol.StopRightMotor")
 	if lib_util.GetDebug() > 0:
 		return
+=======
+        util.Trace("lib_motors_evol.StopRightMotor")
+>>>>>>> Ajout Info/system_update.sh
 	pwmMotorRightForwards.ChangeDutyCycle(Stop)
 	pwmMotorRightBackwards.ChangeDutyCycle(Stop)
 
@@ -209,6 +219,6 @@ def RightStay():
 def End():
         lib_util.Trace("lib_motors_evol.End")
 	StopMotors()
-	lib_motors_base.End()
+	base.End()
 
 
