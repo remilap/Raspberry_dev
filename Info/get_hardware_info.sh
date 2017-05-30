@@ -1,5 +1,8 @@
 #!/bin/sh
 
+tool_dir=`dirname $0`
+cd ${tool_dir}
+
 rev=`cat /proc/cpuinfo | grep 'Revision' | awk '{print $3}' | sed 's/^1000//'`
 echo "rev=$rev"
 
