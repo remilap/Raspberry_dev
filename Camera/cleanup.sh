@@ -10,6 +10,7 @@ if [ "$1" != "" ]; then
   fi
 fi
 destDir=/var/www/html/motion
+destDir=/var/www/html/maison
 dat=`date +"%Y-%m-%d %T"`
 echo "----------------------------------------------------------------"
 echo "Today: ${dat}"
