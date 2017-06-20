@@ -23,4 +23,4 @@
 00 2 * * * /home/pi/cleanup.sh >> /home/pi/cleanup.log
 02 * * * * /home/pi/get_image.sh >> /home/pi/cam01.traces
 01 * * * * /home/pi/retrTempFrom.sh >> /home/pi/retrTempFrom.traces
-05 10 * * * /home/pi/get_external_IP.py >> /home/pi/get_external_IP.traces
+05 10 * * * /home/pi/get_external_IP.sh >> /home/pi/get_external_IP.traces
