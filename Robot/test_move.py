@@ -12,7 +12,8 @@ import lib_motors_evol as evol
 def main(stdscr):
 	# Clear screen
 	stdscr.clear()
-	util.SetDebug(1)
+#	util.SetDebug(1)
+	util.SetTrace(1)
 
 	evol.Init()
 
