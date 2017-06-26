@@ -6,5 +6,7 @@ sudo apt-get upgrade
 
 sudo apt-get dist-upgrade
 
+sudo apt-get autoremove
+
 sudo apt-get clean
 
