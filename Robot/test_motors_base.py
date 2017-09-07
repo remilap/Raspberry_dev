@@ -3,38 +3,29 @@
 # CamJam EduKit 3 - Robotics
 # Worksheet 4 - Driving and Turning
 
-import RPi.GPIO as GPIO # Import the GPIO Library
+#import RPi.GPIO as GPIO # Import the GPIO Library
 import time
-import lib_motors_base as base
+#import lib_motors_base as base
+import motor_class as motor
+import lib_util as util
 
 
-base.Init()
+#base.Init()
+util.setDebug(0)
+util.setTrace(1)
+util.traceCall()
 
-base.StopMotors()
-base.Forwards()
+wheel = motor.Motor("wheel", 8, 7)
+wheel.basicMotorStop()
+wheel.basicMotorForward()
 time.sleep(0.2)
-base.StopMotors()
+wheel.basicMotorStop()
 time.sleep(0.5)
-base.Left()
+wheel.basicMotorBackward()
 time.sleep(0.2)
-base.StopMotors()
+wheel.basicMotorStop()
 time.sleep(0.5)
-base.Right()
-time.sleep(0.2)
-base.StopMotors()
-time.sleep(0.5)
-base.LeftStay()
-time.sleep(0.2)
-base.StopMotors()
-time.sleep(0.5)
-base.RightStay()
-time.sleep(0.2)
-base.StopMotors()
-time.sleep(0.5)
-base.Backwards()
-time.sleep(0.2)
-base.StopMotors()
 
 
-base.End()
+wheel.motorEnd()
 
