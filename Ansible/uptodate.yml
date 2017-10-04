@@ -1,0 +1,7 @@
+---
+# file: playbook.yml
+
+- hosts: all
+  roles:
+    - uptodate
+

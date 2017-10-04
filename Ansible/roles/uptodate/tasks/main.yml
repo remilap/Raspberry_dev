@@ -1,0 +1,7 @@
+---
+# file: roles/uptodate/tasks/main.yml
+# This playbook contains common plays that will be run on all nodes.
+
+- name: update system
+  command: /home/pi/Raspberry_dev/Info/system_update.sh
+

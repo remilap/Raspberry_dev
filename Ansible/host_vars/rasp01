@@ -1,0 +1,11 @@
+---
+# file: host_vars/rasp01
+
+foo_agent_port: 86
+bar_agent_port: 99
+
+#ansible_ssh_host: 192.168.1.189
+ansible_ssh_user: pi
+#ansible_ssh_pass: raspberry
+host_key_checking: false
+

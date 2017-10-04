@@ -1,0 +1,5 @@
+---
+# file: group_vars/perros
+ntp: ntp-atlanta.example.com
+backup: backup-atlanta.example.com
+

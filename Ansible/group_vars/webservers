@@ -1,0 +1,5 @@
+---
+# file: group_vars/webservers
+apacheMaxRequestsPerChild: 3000
+apacheMaxClients: 900
+

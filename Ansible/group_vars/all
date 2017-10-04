@@ -1,0 +1,24 @@
+---
+# file: group_vars/all
+
+wifi:
+  ssid: "SFR_70D0"
+  password: "pij86fqux5buq22pcxs3"
+
+#packages_to_install: [ git, automake, build-essential,
+#        ipython, node, npm, python-pip, python-dev,
+#        #vim, cowsay, htop, ranger, mosh
+#        ]
+packages_to_install: [ node, npm, python-pip ]
+
+#pip_packages_to_install: [ awscli ]
+pip_packages_to_install: [ ]
+
+#npm_packages_to_install: [ mqtt, crypto-js, minimist, websocket-stream ]
+npm_packages_to_install: [ ]
+
+#github_packages_to_clone: [ aws/aws-iot-device-sdk-js.git ]
+github_packages_to_clone: [ ]
+
+update_cache: no
+

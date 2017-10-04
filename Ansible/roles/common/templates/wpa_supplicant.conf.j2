@@ -1,0 +1,18 @@
+country=GB
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+ 
+network={
+    ssid="{{ wifi.ssid }}"
+    key_mgmt=WPA-PSK
+    psk="{{ wifi.password }}"
+}
+
+network={
+    ssid="Bbox-A94D8E62"
+    scan_ssid=1
+    key_mgmt=WPA-PSK
+    psk="425A441C4CF3E3F1643265E4CEDF15"
+}
+
+

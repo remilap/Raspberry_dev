@@ -1,0 +1,35 @@
+---
+# file: roles/common/tasks/main.yml
+# This playbook contains common plays that will be run on all nodes.
+
+- name: put wifi config in place
+  template: src=wpa_supplicant.conf.j2 dest=/etc/wpa_supplicant/wpa_supplicant.conf
+  notify: reboot
+
+- name: install python-apt
+  command: apt-get install python-apt
+  register: aptget
+  changed_when: "'python-apt is already the newest version.' not in aptget.stdout_lines"
+
+- name: add node repo
+  command: "/bin/bash -c 'curl -sLS https://apt.adafruit.com/add | sudo bash'"
+  register: add
+  #changed_when:
+- debug: var=add
+
+- name: install ubuntu packages
+  apt: pkg={{ item }} state=installed update_cache={{ update_cache }}
+  with_items: packages_to_install
+  sudo: true
+
+- name: install python modules with pip
+  pip: name={{ item }}
+  with_items: pip_packages_to_install
+
+- name: install node.js packages with npm
+  npm: name={{ item }} global=yes
+  with_items: npm_packages_to_install
+
+#- name: clone git packages
+#  git: repo=https://github.com/{{ item }} dest=/home/pi/aws-iot-device-sdk-js
+

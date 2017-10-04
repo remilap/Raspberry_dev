@@ -1,0 +1,13 @@
+---
+# file: playbook.yml
+
+- hosts: webservers
+#  remote_user: root
+#  become: yes
+  roles:
+    - common
+
+- hosts: all
+  roles:
+    - uptodate
+
