@@ -1,0 +1,14 @@
+---
+# file: roles/ntp/handlers/main.yml
+# Handler to handle ntp notifications. Handlers are called by other plays.
+# See http://docs.ansible.com/playbooks_intro.html for more information about handlers.
+
+- name: reboot
+  command: shutdown -r -y now "Ansible updates triggered"
+  async: 0
+  poll: 0
+  ignore_errors: true
+
+- name: restart ntpd
+  service: name=ntpd state=restarted
+

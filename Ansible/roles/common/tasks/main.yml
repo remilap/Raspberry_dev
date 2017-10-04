@@ -6,6 +6,9 @@
   template: src=wpa_supplicant.conf.j2 dest=/etc/wpa_supplicant/wpa_supplicant.conf
   notify: reboot
 
+- name: update of apt cache
+  apt: update_cache=yes
+
 - name: install python-apt
   command: apt-get install python-apt
   register: aptget

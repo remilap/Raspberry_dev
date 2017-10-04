@@ -3,3 +3,7 @@
 apacheMaxRequestsPerChild: 3000
 apacheMaxClients: 900
 
+domain: remiperros.myftp.org
+admin: remi.lapointe@gmail.com
+directory: webapp/web
+

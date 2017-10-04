@@ -9,7 +9,7 @@ wifi:
 #        ipython, node, npm, python-pip, python-dev,
 #        #vim, cowsay, htop, ranger, mosh
 #        ]
-packages_to_install: [ node, npm, python-pip ]
+packages_to_install: [ node, npm, python-pip, aptitude, curl, zip, git ]
 
 #pip_packages_to_install: [ awscli ]
 pip_packages_to_install: [ ]

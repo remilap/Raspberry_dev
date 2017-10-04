@@ -1,0 +1,8 @@
+---
+# file: roles/apache2/handlers/main.yml
+# Handler to handle apache2 notifications. Handlers are called by other plays.
+# See http://docs.ansible.com/playbooks_intro.html for more information about handlers.
+
+- name: restart apache2
+  service: name=apache2 state=restarted
+
