@@ -2,16 +2,17 @@
 # file: roles/ntp/tasks/main.yml
 # This playbook contains ntp plays that will be run on all nodes.
 
-- name: ...
-  template: src=wpa_supplicant.conf.j2 dest=/etc/wpa_supplicant/wpa_supplicant.conf
-  notify: reboot
+- name: be sure ntp is installed
+  apt: name=ntp state=installed
+  tags: ntp
 
-- name: ...
-  apt: name={{ item }} state=installed update_cache={{ update_cache }}
-  with_items: ...
+- name: be sure ntp is configured
+  template: src=ntp.conf.j2 dest=/etc/ntp.conf
+  notify:
+    - restart ntpd
+  tags: ntp
 
-- name: ...
-  command: "/bin/bash -c 'curl -sLS https://apt.adafruit.com/add | sudo bash'"
-  changed_when: "'python-apt is already the newest version.' not in aptget.stdout_lines"
-  #changed_when:
+- name: be sure ntpd is running and enabled
+  service: name=ntpd state=started enabled=yes
+  tags: ntp
 
