@@ -10,6 +10,9 @@
   apt: update_cache=yes
   sudo: true
 
+- name: update Raspberry_dev git repository
+  git: repo=https://github.com/remilap/Raspberry_dev dest=/home/pi/Raspberry_dev
+
 - name: install python-apt
   command: apt-get install python-apt
   register: aptget
