@@ -10,9 +10,11 @@
     - apache2-utils
     - libexpat1
     - ssl-cert
+  #sudo: yes
 
 - name: create webapp vhost
   template: src=virtualhost.conf dest=/etc/apache2/sites-available/{{ domain }}.conf
+  #sudo: yes
 
 - name: a2ensite webapp
   command: a2ensite {{ domain }}
@@ -20,9 +22,11 @@
     creates: /etc/apache2/site-enabled/{{ domain }}.conf
   notify:
     - restart apache2
+  #sudo: yes
 
 - name: activation mod-rewrite
   apache2_module: name=rewrite state=present
   notify:
     - restart apache2
+  #sudo: yes
 

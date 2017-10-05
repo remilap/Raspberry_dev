@@ -2,12 +2,13 @@
 # file: playbook.yml
 
 - hosts: webservers
-#  remote_user: root
-#  become: yes
+  remote_user: root
+  #become: yes
   roles:
-    - common
+    - apache2
 
 - hosts: all
   roles:
+    - common
     - uptodate
 

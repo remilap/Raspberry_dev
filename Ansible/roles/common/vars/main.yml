@@ -1,0 +1,5 @@
+---
+# file: roles/apache2/vars/main.yml
+
+sudo: yes
+

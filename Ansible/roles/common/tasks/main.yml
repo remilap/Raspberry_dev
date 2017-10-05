@@ -8,6 +8,7 @@
 
 - name: update of apt cache
   apt: update_cache=yes
+  sudo: true
 
 - name: install python-apt
   command: apt-get install python-apt
