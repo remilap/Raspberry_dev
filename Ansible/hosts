@@ -3,12 +3,12 @@
 
 [perros-webservers]
 rasp01
-rasp02
 
 [perros-dbservers]
 rasp01
 
 [perros-others]
+rasp02
 rasp03
 rasp04
 

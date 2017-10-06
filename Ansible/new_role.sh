@@ -11,7 +11,7 @@ if [ -d roles/${role} ]; then
   exit 2
 fi
 
-mkdir -p roles/${role}/tasks roles/${role}/handlers roles/${role}/templates
+mkdir -p roles/${role}/tasks roles/${role}/handlers roles/${role}/templates roles/${role}/vars
 
 cat << EOF > roles/${role}/tasks/main.yml
 ---

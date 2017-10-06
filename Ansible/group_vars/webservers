@@ -1,9 +1,24 @@
 ---
 # file: group_vars/webservers
+
 apacheMaxRequestsPerChild: 3000
 apacheMaxClients: 900
 
 domain: remiperros.myftp.org
 admin: remi.lapointe@gmail.com
 directory: webapp/web
+
+packages_to_install: [ python-dev, sshpass, libffi-dev,
+        curl, python-mysqldb, htop, zip, iotop, iptraf
+        ]
+
+pip_packages_to_install: [ pyyaml Jinja2 markupsafe ansible ]
+
+#npm_packages_to_install: [ mqtt, crypto-js, minimist, websocket-stream ]
+npm_packages_to_install: [ ]
+
+#github_packages_to_clone: [ aws/aws-iot-device-sdk-js.git ]
+github_packages_to_clone: [ ]
+
+update_cache: no
 

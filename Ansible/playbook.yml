@@ -11,4 +11,5 @@
   #become: yes
   roles:
     - apache2
+    - php
 
