@@ -3,7 +3,7 @@
 # This playbook contains php plays that will be run on all nodes.
 
 - name: install PHP
-  apt: pkg={{ item }} state=installed
+  apt: pkg="{{ item }}" state=installed
   with_items:
     - php5
     - libapache2-mod-php5
@@ -27,7 +27,7 @@
 
 - name: Modify date.time zone in different files
   replace:
-    dest: {{ item }}
+    dest: "{{ item }}"
     regexp: ';date.timezone ='
     replace: 'date.time = Europe/Paris'
     backup: yes
@@ -39,7 +39,7 @@
   lineinfile:
     dest: /etc/mysql/my.cnf
     insertafter: EOF
-    line: {{ item }}
+    line: "{{ item }}"
     with_items:
       - "collation-server = utf8_general_ci"
       - "character-set-server = utf8"
