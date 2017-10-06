@@ -28,18 +28,18 @@
 - name: Modify date.time zone in different files
   replace:
     dest: {{ item }}
-    regexp=';date.timezone ='
-    replace='date.time = Europe/Paris'
-    backup=yes
+    regexp: ';date.timezone ='
+    replace: 'date.time = Europe/Paris'
+    backup: yes
     with_items:
       - /etc/php5/apache2/php.ini
       - /etc/php5/cli/php.ini
 
 - name: Add custom mysql config collation-server
   lineinfile:
-    dest=/etc/mysql/my.cnf
-    insertafter=EOF
-    line={{ item }}
+    dest: /etc/mysql/my.cnf
+    insertafter: EOF
+    line: {{ item }}
     with_items:
       - "collation-server = utf8_general_ci"
       - "character-set-server = utf8"
@@ -49,6 +49,6 @@
 
 - name: create webapp db
   mysql_db:
-    name=webapp
-    state=present
+    name: webapp
+    state: present
 
