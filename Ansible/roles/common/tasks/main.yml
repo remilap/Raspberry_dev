@@ -13,7 +13,7 @@
 - name: update Raspberry_dev git repository
   remote_user: pi
   #git: repo=git@github.com:remilap/Raspberry_dev.git dest=/home/pi/Raspberry_dev
-  command: git pull
+  command: su pi -c "git pull"
   args:
     chdir: /home/pi/Raspberry_dev
 
