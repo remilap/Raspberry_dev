@@ -11,8 +11,9 @@
   sudo: true
 
 - name: update Raspberry_dev git repository
-  #git: repo=https://github.com/remilap/Raspberry_dev dest=/home/pi/Raspberry_dev
-  command: "cd /home/pi/Raspberry_dev;git pull"
+  remote_user: pi
+  git: repo=git@github.com:remilap/Raspberry_dev.git dest=/home/pi/Raspberry_dev
+  #command: "cd /home/pi/Raspberry_dev;git pull"
 
 - name: install python-apt
   command: apt-get install python-apt
