@@ -12,7 +12,7 @@ packages_to_install: [ python-dev, sshpass, libffi-dev,
         curl, python-mysqldb, htop, zip, iotop, iptraf
         ]
 
-pip_packages_to_install: [ pyyaml Jinja2 markupsafe ansible ]
+pip_packages_to_install: [ pyyaml, Jinja2, markupsafe, ansible ]
 
 #npm_packages_to_install: [ mqtt, crypto-js, minimist, websocket-stream ]
 npm_packages_to_install: [ ]

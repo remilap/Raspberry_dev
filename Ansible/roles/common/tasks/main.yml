@@ -41,6 +41,8 @@
   npm: name={{ item }} global=yes
   with_items: npm_packages_to_install
 
-#- name: clone git packages
-#  git: repo=https://github.com/{{ item }} dest=/home/pi/aws-iot-device-sdk-js
+- name: clone git packages
+  remote_user: pi
+  git: repo={{ item.repo }} dest=/home/pi/{{ item.dest }}
+  with_items: git_packages_to_install
 
