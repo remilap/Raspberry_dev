@@ -18,9 +18,9 @@ pip_packages_to_install: [ ]
 npm_packages_to_install: [ ]
 
 #github_packages_to_clone: [ aws/aws-iot-device-sdk-js.git ]
-github_packages_to_clone: [
+git_packages_to_install: [
     { repo: 'git@github.com:remilap/Raspberry_dev.git', dest: 'Raspberry_dev' }
-  , { repo: 'repo01', dest: 'dest01' }
+#  , { repo: 'repo01', dest: 'dest01' }
   ]
 
 update_cache: no

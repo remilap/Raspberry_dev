@@ -42,7 +42,7 @@
   with_items: npm_packages_to_install
 
 - name: clone git packages
-  remote_user: pi
-  git: repo={{ item.repo }} dest=/home/pi/{{ item.dest }}
+  #remote_user: pi
+  git: repo={{ item.repo }} dest=/home/pi/{{ item.dest }} key_file=/home/pi/.ssh/id_rsa accept_hostkey=yes
   with_items: git_packages_to_install
 
