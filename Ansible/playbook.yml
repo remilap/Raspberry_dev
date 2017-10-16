@@ -2,6 +2,7 @@
 # file: playbook.yml
 
 - hosts: all
+  remote_user: root
   roles:
     - common
     - uptodate
