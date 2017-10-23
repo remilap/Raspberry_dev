@@ -1,6 +1,8 @@
 ---
 # file: group_vars/all
 
+ansible_ssh_user: pi
+
 wifi:
   ssid: "SFR_70D0"
   password: "pij86fqux5buq22pcxs3"
