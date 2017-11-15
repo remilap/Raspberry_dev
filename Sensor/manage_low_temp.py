@@ -8,6 +8,7 @@ import os
 import glob
 import time
 from time import localtime, strftime
+from subprocess import check_output
 import send_sms
 
 
@@ -17,9 +18,15 @@ fnlow = '/home/pi/sms_low_temp_date.txt'
 fncsv = '/home/pi/temps.csv'
 
 def analyze(t):
+    # retrieve internal temperature
+    internal_temp = check_output("vcgencmd measure_temp | cut -d= -f2 | cut -d\\' -f1", shell=True)
+    int_t = float(internal_temp.strip())
+    cor_t = t - int_t / 6.1
+
     # write last temp in a file
     fo = open(fncsv, 'a')
-    fo.write(strftime('%Y%m%d%H%M%S', localtime()) + ',' + str(t) + '\n')
+    #fo.write(strftime('%Y%m%d%H%M%S', localtime()) + ',' + str(t) + '\n')
+    fo.write('{0} {1:.1f} {2:.1f} {3:.1f}\n'.format(strftime('%Y%m%d%H%M%S', localtime()), t, int_t, cor_t))
     fo.close()
 
     try:
