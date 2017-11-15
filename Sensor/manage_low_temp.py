@@ -26,7 +26,7 @@ def analyze(t):
     # write last temp in a file
     fo = open(fncsv, 'a')
     #fo.write(strftime('%Y%m%d%H%M%S', localtime()) + ',' + str(t) + '\n')
-    fo.write('{0} {1:.1f} {2:.1f} {3:.1f}\n'.format(strftime('%Y%m%d%H%M%S', localtime()), t, int_t, cor_t))
+    fo.write('{0},{1:.1f},{2:.1f},{3:.1f}\n'.format(strftime('%Y%m%d%H%M%S', localtime()), t, int_t, cor_t))
     fo.close()
 
     try:
