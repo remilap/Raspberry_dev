@@ -18,7 +18,14 @@ if [ $? = 0 -o ${force} = 1 ]; then
   ssh ${client} "tail -n 1 temps.csv" > ${file}.tmp
   nl=`wc -l ${file}.tmp | awk '{print $1}'`
   if [ ${nl} -gt 0 ]; then
-    mv ${file}.tmp ${file}
+    if [ "${client}" = "rasp03" ]; then
+      dat=`cut -d, -f1 ${file}.tmp`
+      temp=`cut -d, -f2 ${file}.tmp`
+      temp=`echo "${temp} - 6.8" | bc`
+      echo "${dat},${temp}" > ${file}
+    else
+      mv ${file}.tmp ${file}
+    fi
   fi
 else
   echo "ERROR: ${client} is not reachable"
