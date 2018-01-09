@@ -14,7 +14,7 @@ wifi:
 packages_to_install: [ node, npm, python-pip, aptitude, curl, zip, git ]
 
 #pip_packages_to_install: [ awscli ]
-pip_packages_to_install: [ ]
+pip_packages_to_install: [ configparser ]
 
 #npm_packages_to_install: [ mqtt, crypto-js, minimist, websocket-stream ]
 npm_packages_to_install: [ ]
