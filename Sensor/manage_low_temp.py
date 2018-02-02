@@ -4,11 +4,14 @@
 # Worksheet 3 - Temperature
 
 # Import Libraries
-import os
+import os, sys
 import glob
 import time
 from time import localtime, strftime
 from subprocess import check_output
+d = os.path.dirname(__file__)
+d = d if d else '.'
+sys.path.append(d + "/../Lib")
 import send_sms
 
 
