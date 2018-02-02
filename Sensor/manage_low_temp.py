@@ -12,12 +12,10 @@ from subprocess import check_output
 import send_sms
 
 
-
-# send SMS si temperature trop basse
-fnlow = '/home/pi/sms_low_temp_date.txt'
+# write temperature in a csv file
 fncsv = '/home/pi/temps.csv'
 
-def analyze(t):
+def write_csv(t):
     # retrieve internal temperature
     internal_temp = check_output("vcgencmd measure_temp | cut -d= -f2 | cut -d\\' -f1", shell=True)
     int_t = float(internal_temp.strip())
@@ -29,6 +27,13 @@ def analyze(t):
     fo.write('{0},{1:.1f},{2:.1f},{3:.1f}\n'.format(strftime('%Y%m%d%H%M%S', localtime()), t, int_t, cor_t))
     fo.close()
 
+    return
+
+
+# send SMS if temperature is too low or comes back normal
+fnlow = '/home/pi/sms_low_temp_date.txt'
+
+def analyze(t):
     try:
         fm = open(fnlow, 'r')
         contenu = fm.read()

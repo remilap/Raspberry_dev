@@ -34,11 +34,15 @@ cor_t = t - int_t / 6.1
 t -= t_cor
 print '{0:.1f} {1:.1f} {2:.1f}'.format(t, int_t, cor_t)
 
+# write temperature in csv file
+t = round(t*10)/10
+manage_low_temp.write_csv(t)
+
 if (len(sys.argv) > 1):
     # Send value to initialstate.com
     add_value_initState.send_value(t)
 
-    t = round(t*10)/10
+    # Send sms if needed
     manage_low_temp.analyze(t)
 
 
