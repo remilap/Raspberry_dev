@@ -3,7 +3,7 @@
 # Keyboard control Driving and Turning
 
 import time
-import lib_util
+import lib_util as util
 import curses
 from curses import wrapper
 
@@ -11,7 +11,7 @@ from curses import wrapper
 def main(stdscr):
 	# Clear screen
 	stdscr.clear()
-	lib_util.SetDebug(1)
+	util.setDebug(1)
 
 	speed_r = 0
 	speed_l = 0

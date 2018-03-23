@@ -14,7 +14,7 @@ pinMotorLeftForwards = 8
 pinMotorLeftBackwards = 7
 
 # Init this library
-def Init():
+def init():
 	util.Trace("lib_motors_base.Init")
 	# Set the GPIO modes
 	GPIO.setmode(GPIO.BCM)
@@ -27,91 +27,91 @@ def Init():
 
 		
 # Turn Right motor off
-def StopRightMotor():
-	util.Trace("lib_motors_base.StopRightMotor")
+def stopRightMotor():
+	util.trace("lib_motors_base.stopRightMotor")
 	GPIO.output(pinMotorRightForwards, 0)
 	GPIO.output(pinMotorRightBackwards, 0)
 
 # Turn Left motor off
-def StopLeftMotor():
-	util.Trace("lib_motors_base.StopLeftMotor")
+def stopLeftMotor():
+	util.trace("lib_motors_base.stopLeftMotor")
 	GPIO.output(pinMotorLeftForwards, 0)
 	GPIO.output(pinMotorLeftBackwards, 0)
 
 # Turn all motors off
-def StopMotors():
-	util.Trace("lib_motors_base.StopMotors")
-	StopRightMotor()
-	StopLeftMotor()
+def stopMotors():
+	util.trace("lib_motors_base.stopMotors")
+	stopRightMotor()
+	stopLeftMotor()
 
 # Turn the right motor forwards
-def ForwardsRightMotor():
-	util.Trace("lib_motors_base.ForwardsRightMotor")
+def forwardsRightMotor():
+	util.trace("lib_motors_base.forwardsRightMotor")
 	if util.debug == 0:
 		GPIO.output(pinMotorRightForwards, 1)
 	GPIO.output(pinMotorRightBackwards, 0)
 
 # Turn the right motor backwards
-def BackwardsRightMotor():
-	util.Trace("lib_motors_base.BackwardsRightMotor")
+def backwardsRightMotor():
+	util.trace("lib_motors_base.backwardsRightMotor")
 	GPIO.output(pinMotorRightForwards, 0)
 	if util.debug == 0:
 		GPIO.output(pinMotorRightBackwards, 1)
 
 # Turn the left motor forwards
-def ForwardsLeftMotor():
-	util.Trace("lib_motors_base.ForwardsLeftMotor")
+def forwardsLeftMotor():
+	util.trace("lib_motors_base.forwardsLeftMotor")
 	if util.debug == 0:
 		GPIO.output(pinMotorLeftForwards, 1)
 	GPIO.output(pinMotorLeftBackwards, 0)
 
 # Turn the left motor backwards
-def BackwardsLeftMotor():
-	util.Trace("lib_motors_base.BackwardsLeftMotor")
+def backwardsLeftMotor():
+	util.trace("lib_motors_base.backwardsLeftMotor")
 	GPIO.output(pinMotorLeftForwards, 0)
 	if util.debug == 0:
 		GPIO.output(pinMotorLeftBackwards, 1)
 
 # Turn both motors forwards
-def Forwards():
-	util.Trace("lib_motors_base.Forwards")
-	ForwardsRightMotor()
-	ForwardsLeftMotor()
+def forwards():
+	util.trace("lib_motors_base.forwards")
+	forwardsRightMotor()
+	forwardsLeftMotor()
 
 # Turn both motors backwards
-def Backwards():
-	util.Trace("lib_motors_base.Backwards")
-	BackwardsRightMotor()
-	BackwardsLeftMotor()
+def backwards():
+	util.trace("lib_motors_base.backwards")
+	backwardsRightMotor()
+	backwardsLeftMotor()
 
 # Turn left
-def Left():
-	util.Trace("lib_motors_base.Left")
-	StopLeftMotor()
-	ForwardsRightMotor()
+def left():
+	util.trace("lib_motors_base.left")
+	stopLeftMotor()
+	forwardsRightMotor()
 
 # Turn left without moving forward
-def LeftStay():
-	util.Trace("lib_motors_base.LeftStay")
-	BackwardsLeftMotor()
-	ForwardsRightMotor()
+def leftStay():
+	util.trace("lib_motors_base.leftStay")
+	backwardsLeftMotor()
+	forwardsRightMotor()
 
 # Turn right
-def Right():
-	util.Trace("lib_motors_base.Right")
-	ForwardsLeftMotor()
-	StopRightMotor()
+def right():
+	util.trace("lib_motors_base.right")
+	forwardsLeftMotor()
+	stopRightMotor()
 
 # Turn right without moving forward
-def RightStay():
-	util.Trace("lib_motors_base.RightStay")
-	ForwardsLeftMotor()
-	BackwardsRightMotor()
+def rightStay():
+	util.trace("lib_motors_base.rightStay")
+	forwardsLeftMotor()
+	backwardsRightMotor()
 
 # Ending the use of the library
-def End():
-	util.Trace("lib_motors_base.End")
-	StopMotors()
+def end():
+	util.trace("lib_motors_base.end")
+	stopMotors()
 	# Reset the GPIO pins (turn off motors too)
 	GPIO.cleanup()
 

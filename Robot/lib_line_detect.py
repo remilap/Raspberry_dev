@@ -4,7 +4,7 @@
 
 import RPi.GPIO as GPIO # Import the GPIO Library
 import time
-import lib_util
+import lib_util as util
 
 
 # Set variables for the GPIO motor pins
@@ -12,7 +12,7 @@ pinLineFollower = 25
 
 
 # Init this library
-def Init():
+def init():
 	# Set the GPIO modes
 	GPIO.setmode(GPIO.BCM)
 	GPIO.setwarnings(False)
@@ -22,14 +22,14 @@ def Init():
 
 
 # Get detector status
-def IsOverBlack():
+def isOverBlack():
 	# If the sensor is Low (=0), it's above the black line
 	if GPIO.input(pinLineFollower) == 0:
-		Trace("The sensor is seeing a black surface")
+		util.trace("The sensor is seeing a black surface")
 		return True
 	# If not (else), print the following
 	else:
-		Trace("The sensor is seeing a white surface")
+		util.trace("The sensor is seeing a white surface")
 		return False
 
 

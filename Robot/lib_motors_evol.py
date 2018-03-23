@@ -26,9 +26,9 @@ my_speed = 0
 
 
 # Init this library
-def Init():
-        util.Trace("lib_motors_evol.Init")
-	base.Init()
+def init():
+        util.trace("lib_motors_evol.init")
+	base.init()
 
 	# Declare the PWM variables
 	global pwmMotorLeftForwards
@@ -55,7 +55,7 @@ def getMaxSpeed():
 # Define the speed
 def setSpeed(v):
 	if v < -speed_max or v > speed_max:
-		util.Trace("The speed must be in range " + str(-speed_max) + ".." + str(speed_max))
+		util.trace("The speed must be in range " + str(-speed_max) + ".." + str(speed_max))
 	else:
 		my_speed = v
 
@@ -70,25 +70,25 @@ def getAbsSpeed():
 	return -my_speed
 
 # Turn left motor off
-def StopLeftMotor():
-        util.Trace("lib_motors_evol.StopLeftMotor")
+def stopLeftMotor():
+        util.trace("lib_motors_evol.stopLeftMotor")
 	if util.GetDebug() > 0:
 		return
 	pwmMotorLeftForwards.ChangeDutyCycle(Stop)
 	pwmMotorLeftBackwards.ChangeDutyCycle(Stop)
 
 # Turn right motor off
-def StopRightMotor():
-        util.Trace("lib_motors_evol.StopRightMotor")
-	if util.GetDebug() > 0:
+def stopRightMotor():
+        util.trace("lib_motors_evol.stopRightMotor")
+	if util.getDebug() > 0:
 		return
 	pwmMotorRightForwards.ChangeDutyCycle(Stop)
 	pwmMotorRightBackwards.ChangeDutyCycle(Stop)
 
 # Set left motor speed
-def LeftMotorSpeed(speed_f, speed_b):
-        util.Trace("lib_motors_evol.LeftMotorSpeed with speed_f=" + str(speed_f) + " and speed_b=" + str(speed_b))
-	if util.GetDebug() > 0:
+def leftMotorSpeed(speed_f, speed_b):
+        util.trace("lib_motors_evol.leftMotorSpeed with speed_f=" + str(speed_f) + " and speed_b=" + str(speed_b))
+	if util.getDebug() > 0:
 		return
 	if 1 <= speed_f <= speed_max:
 		pwmMotorLeftForwards.ChangeDutyCycle(DutyCycleLeft * speed_f)
@@ -100,34 +100,34 @@ def LeftMotorSpeed(speed_f, speed_b):
 		pwmMotorLeftBackwards.ChangeDutyCycle(Stop)
 
 # Turn left motor on
-def StartLeftMotor(speed):
-        util.Trace("lib_motors_evol.StartLeftMotor with speed=" + str(speed))
+def startLeftMotor(speed):
+        util.trace("lib_motors_evol.startLeftMotor with speed=" + str(speed))
 	s = speed
 	if speed == 0:
-		LeftMotorSpeed(0, 0)
+		leftMotorSpeed(0, 0)
 	elif speed > 0:
 		if speed > speed_max:
 			s = speed_max
-		LeftMotorSpeed(s, 0)
+		leftMotorSpeed(s, 0)
 	else:
 		if speed < -speed_max:
 			s = -speed_max
-		LeftMotorSpeed(0, s)
+		leftMotorSpeed(0, s)
 
 # Turn left motor forwards
-def LeftMotorForwards():
-        util.Trace("lib_motors_evol.LeftMotorForwards")
-	StartLeftMotor(getAbsSpeed())
+def leftMotorForwards():
+        util.trace("lib_motors_evol.leftMotorForwards")
+	startLeftMotor(getAbsSpeed())
 
 # Turn left motor backwards
-def LeftMotorBackwards():
-        util.Trace("lib_motors_evol.LeftMotorBackwards")
-	StartLeftMotor(-getAbsSpeed())
+def leftMotorBackwards():
+        util.trace("lib_motors_evol.leftMotorBackwards")
+	startLeftMotor(-getAbsSpeed())
 
 # Set right motor speed
-def RightMotorSpeed(speed_f, speed_b):
-        util.Trace("lib_motors_evol.RightMotorSpeed with speed_f=" + str(speed_f) + " and speed_b=" + str(speed_b))
-	if util.GetDebug() > 0:
+def rightMotorSpeed(speed_f, speed_b):
+        util.trace("lib_motors_evol.rightMotorSpeed with speed_f=" + str(speed_f) + " and speed_b=" + str(speed_b))
+	if util.getDebug() > 0:
 		return
 	if 1 <= speed_f <= speed_max:
 		pwmMotorRightForwards.ChangeDutyCycle(DutyCycleLeft * speed_f)
@@ -139,82 +139,82 @@ def RightMotorSpeed(speed_f, speed_b):
 		pwmMotorRightBackwards.ChangeDutyCycle(Stop)
 
 # Turn right motor on
-def StartRightMotor(speed):
-	util.Trace("lib_motors_evol.StartRightMotor with speed=" + str(speed))
+def startRightMotor(speed):
+	util.trace("lib_motors_evol.startRightMotor with speed=" + str(speed))
 	s = speed
 	if speed == 0:
-		RightMotorSpeed(0, 0)
+		rightMotorSpeed(0, 0)
 	elif speed > 0:
 		if speed > speed_max:
 			s = speed_max
-		RightMotorSpeed(s, 0)
+		rightMotorSpeed(s, 0)
 	else:
 		if speed < -speed_max:
 			s = -speed_max
-		RightMotorSpeed(0, s)
+		rightMotorSpeed(0, s)
 
 # Turn right motor forwards
-def RightMotorForwards():
-        util.Trace("lib_motors_evol.RightMotorForwards")
-	StartRightMotor(getAbsSpeed())
+def rightMotorForwards():
+        util.trace("lib_motors_evol.rightMotorForwards")
+	startRightMotor(getAbsSpeed())
 
 # Turn right motor backwards
-def RightMotorBackwards():
-        util.Trace("lib_motors_evol.RightMotorBackwards")
-	StartRightMotor(-getAbsSpeed())
+def rightMotorBackwards():
+        util.trace("lib_motors_evol.rightMotorBackwards")
+	startRightMotor(-getAbsSpeed())
 
 # Turn all motors off
-def StopMotors():
-        util.Trace("lib_motors_evol.StopMotors")
-	StopLeftMotor()
-	StopRightMotor()
+def stopMotors():
+        util.trace("lib_motors_evol.stopMotors")
+	stopLeftMotor()
+	stopRightMotor()
 
 # Turn both motors forwards
-def Forwards():
-        util.Trace("lib_motors_evol.Forwards")
-	LeftMotorForwards()
-	RightMotorForwards()
+def forwards():
+        util.trace("lib_motors_evol.forwards")
+	leftMotorForwards()
+	rightMotorForwards()
 
 # Turn both motors backwards
-def Backwards():
-        util.Trace("lib_motors_evol.Backwards")
-	LeftMotorBackwards()
-	RightMotorBackwards()
+def backwards():
+        util.trace("lib_motors_evol.backwards")
+	leftMotorBackwards()
+	rightMotorBackwards()
 
 # Move
-def Move(speed_l, speed_r):
-	util.Trace("lib_motors_evol.Move with speed_l=" + str(speed_l) + " and speed_r=" + str(speed_r))
-	StartLeftMotor(speed_l)
-	StartRightMotor(speed_r)
+def move(speed_l, speed_r):
+	util.trace("lib_motors_evol.move with speed_l=" + str(speed_l) + " and speed_r=" + str(speed_r))
+	startLeftMotor(speed_l)
+	startRightMotor(speed_r)
 
 # Turn left
-def Left():
-        util.Trace("lib_motors_evol.Left")
-	StopLeftMotor()
-	RightMotorForwards()
+def left():
+        util.trace("lib_motors_evol.left")
+	stopLeftMotor()
+	rightMotorForwards()
 
 # Turn left without moving forward
-def LeftStay():
-        util.Trace("lib_motors_evol.LeftStay")
-	LeftMotorBackwards()
-	RightMotorForwards()
+def leftStay():
+        util.trace("lib_motors_evol.leftStay")
+	leftMotorBackwards()
+	rightMotorForwards()
 
 # Turn Right
-def Right():
-        util.Trace("lib_motors_evol.Right")
-	LeftMotorForwards()
-	StopRightMotor()
+def right():
+        util.trace("lib_motors_evol.right")
+	leftMotorForwards()
+	stopRightMotor()
 
 # Turn Right without moving forward
-def RightStay():
-        util.Trace("lib_motors_evol.RightStay")
-	LeftMotorForwards()
-	RightMotorBackwards()
+def rightStay():
+        util.trace("lib_motors_evol.rightStay")
+	leftMotorForwards()
+	rightMotorBackwards()
 
 # Ending the use of the library
-def End():
-        util.Trace("lib_motors_evol.End")
-	StopMotors()
-	base.End()
+def end():
+        util.trace("lib_motors_evol.end")
+	stopMotors()
+	base.end()
 
 

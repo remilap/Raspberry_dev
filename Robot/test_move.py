@@ -12,10 +12,10 @@ import lib_motors_evol as evol
 def main(stdscr):
 	# Clear screen
 	stdscr.clear()
-#	util.SetDebug(1)
-	util.SetTrace(1)
+#	util.setDebug(1)
+	util.setTrace(1)
 
-	evol.Init()
+	evol.init()
 
 	speed_r = 0
 	speed_l = 0
@@ -23,7 +23,7 @@ def main(stdscr):
 	speed_up = 1
 	speed_turn = 0.25
 
-	evol.StopMotors()
+	evol.stopMotors()
 	running = True
 	while running:
 		stdscr.addstr(0, 0, "Left: " + str(speed_l) + " Right: " + str(speed_r))
@@ -39,7 +39,7 @@ def main(stdscr):
 			stdscr.addstr(1, 0, "Key pressed: space => BRAKE")
 			speed_l = 0
 			speed_r = 0
-			evol.StopMotors()
+			evol.stopMotors()
 		elif c == 'KEY_UP':
 			stdscr.addstr(1, 0, "Key pressed: UP => SPEED UP")
 			if speed_l + speed_up <= speed_max and speed_r + speed_up <= speed_max:
@@ -61,14 +61,14 @@ def main(stdscr):
 				speed_l += speed_turn
 				speed_r -= speed_turn
 
-		evol.Move(speed_l, speed_r)
+		evol.move(speed_l, speed_r)
 
-#evol.LeftStay()
-#evol.RightStay()
+#evol.leftStay()
+#evol.rightStay()
 
-	evol.StopMotors()
+	evol.stopMotors()
 
-	evol.End()
+	evol.end()
 
 wrapper(main)
 

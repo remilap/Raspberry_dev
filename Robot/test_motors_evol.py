@@ -10,7 +10,7 @@ import robot_2wheels_class as robot
 import lib_util as util
 
 
-#evol.Init()
+#evol.init()
 util.setDebug(1)
 util.setTrace(1)
 
@@ -29,15 +29,15 @@ if False:
 	time.sleep(1.2)
 	robot1.stopRobot()
 	time.sleep(1.5)
-#	robot1.LeftStay()
+#	robot1.leftStay()
 	time.sleep(1.2)
 	robot1.stopRobot()
 	time.sleep(1.5)
-#	robot1.RightStay()
+#	robot1.rightStay()
 	time.sleep(1.2)
 	robot1.stopRobot()
 	time.sleep(1.5)
-#	robot1.Backwards()
+#	robot1.backwards()
 	time.sleep(1.2)
 	robot1.stopRobot()
 

@@ -10,7 +10,7 @@ import motor_class as motor
 import lib_util as util
 
 
-#base.Init()
+#base.init()
 util.setDebug(0)
 util.setTrace(1)
 util.traceCall()
