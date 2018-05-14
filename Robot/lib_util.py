@@ -77,5 +77,5 @@ def trace(t):
             fo.write(line)
 
         else:
-            print line
+            print(line)
 
