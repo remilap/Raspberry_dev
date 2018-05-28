@@ -75,7 +75,7 @@ def main(stdscr):
 
 		stdscr.refresh()
 
-	util.closeTrace()
+	util.closeOutput()
 
 
 wrapper(main)

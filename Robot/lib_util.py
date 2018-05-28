@@ -58,7 +58,7 @@ def traceCall():
         trace( "{0:<30s} {1:<25s}".format( callingSource(stack()[1]), stack()[1][3] ), )
         if len(stack()) > 2:
             trace( "called by {0:<50s} at {1:<20s}".format( stack()[2][4][0].strip(), callingSource(stack()[2]) ), )
-        trace()
+        trace("")
 
 #        if n+1 < len(stack()):
 #            print "{}: Function '{}' at line {}".format( stack()[n][1], stack()[n+1][4][0].strip(), stack()[n][2] )
