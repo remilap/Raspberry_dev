@@ -72,7 +72,7 @@ def getAbsSpeed():
 # Turn left motor off
 def stopLeftMotor():
         util.trace("lib_motors_evol.stopLeftMotor")
-	if util.GetDebug() > 0:
+	if util.getDebug() > 0:
 		return
 	pwmMotorLeftForwards.ChangeDutyCycle(Stop)
 	pwmMotorLeftBackwards.ChangeDutyCycle(Stop)

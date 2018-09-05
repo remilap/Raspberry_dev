@@ -15,14 +15,14 @@ pinMotorLeftBackwards = 7
 
 # Init this library
 def init():
-	util.Trace("lib_motors_base.Init")
+	util.trace("lib_motors_base.init")
 	# Set the GPIO modes
 	GPIO.setmode(GPIO.BCM)
 	GPIO.setwarnings(False)
 
 	# Set the GPIO Pin mode
 	for x in range(pinMotorLeftBackwards, pinMotorRightForwards+1):
-		util.Trace("set pin " + str(x))
+		util.trace("set pin " + str(x))
 		GPIO.setup(x, GPIO.OUT)
 
 		
