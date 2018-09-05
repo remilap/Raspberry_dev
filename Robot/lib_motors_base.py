@@ -47,7 +47,7 @@ def stopMotors():
 # Turn the right motor forwards
 def forwardsRightMotor():
 	util.trace("lib_motors_base.forwardsRightMotor")
-	if util.debug == 0:
+	if util.getDebug == 0:
 		GPIO.output(pinMotorRightForwards, 1)
 	GPIO.output(pinMotorRightBackwards, 0)
 
@@ -55,13 +55,13 @@ def forwardsRightMotor():
 def backwardsRightMotor():
 	util.trace("lib_motors_base.backwardsRightMotor")
 	GPIO.output(pinMotorRightForwards, 0)
-	if util.debug == 0:
+	if util.getDebug == 0:
 		GPIO.output(pinMotorRightBackwards, 1)
 
 # Turn the left motor forwards
 def forwardsLeftMotor():
 	util.trace("lib_motors_base.forwardsLeftMotor")
-	if util.debug == 0:
+	if util.getDebug == 0:
 		GPIO.output(pinMotorLeftForwards, 1)
 	GPIO.output(pinMotorLeftBackwards, 0)
 
@@ -69,7 +69,7 @@ def forwardsLeftMotor():
 def backwardsLeftMotor():
 	util.trace("lib_motors_base.backwardsLeftMotor")
 	GPIO.output(pinMotorLeftForwards, 0)
-	if util.debug == 0:
+	if util.getDebug == 0:
 		GPIO.output(pinMotorLeftBackwards, 1)
 
 # Turn both motors forwards
