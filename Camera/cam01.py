@@ -6,8 +6,8 @@ from time import sleep, localtime, strftime
 
 camera = picamera.PiCamera()
 
-camera.hflip = True
-camera.vflip = True
+camera.hflip = False
+camera.vflip = False
 
 name = 'image' + strftime("%Y_%m_%d_%H_%M_%S", localtime())
 
