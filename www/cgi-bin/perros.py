@@ -7,7 +7,7 @@ print('Content-Type: text/html ; charset=utf-8\n')
 print('<!DOCTYPE html>')
 print('<html> <head>')
 print('  <meta charset="utf-8" />')
-print('  <base href="http://77.192.99.60:8080">')
+print('  <base href="http://77.192.99.60:8001">')
 #print('  <base href="http://176.180.200.66">')
 #print('  <base href="http://192.168.1.54/">')
 print('  <title>Perros-Guirec Lapointe</title>')
@@ -28,7 +28,7 @@ for name in os.listdir(d):
 # affichage de cette image
 d = "maison/"
 dat = prev[5:].split('_')
-print('<p>Le ' + dat[2] + '/' + dat[1] + '/' + dat[0] + ' &agrave; ' + dat[3] + ' h</p>')
+print('<p>Le ' + dat[2] + '/' + dat[1] + '/' + dat[0] + ' &agrave; ' + dat[3] + 'h' + dat[4] + '</p>')
 print('<p><img src="' + d + prev + '"></p>')
 
 # rechercher derniere temperature
@@ -43,6 +43,9 @@ line = lines[0].split(',')
 dat = line[0]
 print('<p>Dans la maison, le ' + dat[6:8] + '/' + dat[4:6] + ' &agrave; ' + dat[8:10] + 'h' + dat[10:12] + ' il fait ')
 print(line[1] + ' degr&eacute;s</p>')
+
+#print('<p><a href="/cgi-bin/testcgi.py">Prendre une photo</a></p>')
+print('<p><a href="/cgi-bin/take_picture.py">Prendre une photo</a></p>')
 
 print("</body></html>")
 
