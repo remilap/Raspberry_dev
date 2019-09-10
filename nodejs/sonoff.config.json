@@ -1,0 +1,13 @@
+{
+    "router": {
+        "SSID": "SFR_70D0",
+        "password": "pij86fqux5buq22pcxs3"
+    },
+    "server": {
+        "IP": "192.168.1.25",
+        "httpPort": 1080,
+        "httpsPort": 1081,
+        "websocketPort": 443
+    }
+}
+
