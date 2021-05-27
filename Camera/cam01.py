@@ -1,4 +1,7 @@
-#!/usr/bin/python
+#!/usr/local/bin/python
+
+import sys
+sys.path.insert(0, "/home/pi/Raspberry_dev/Camera")
 
 import picamera
 from time import sleep, localtime, strftime

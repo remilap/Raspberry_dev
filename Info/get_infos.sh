@@ -57,7 +57,7 @@ get_info() {
   if [ "${cmde2}" = "/proc" ]; then
     cat ${command}
   elif [ "${command}" = "free" ]; then
-    free -o -h
+    free -h
   else
     if [ "${args}" = "" ]; then
       vcgencmd ${command}
