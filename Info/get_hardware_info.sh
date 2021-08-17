@@ -33,6 +33,7 @@
 tool_dir=`dirname $0`
 cd ${tool_dir}
 
+Hardware=$(cat /proc/cpuinfo | grep 'Hardware' | awk '{print $3}')
 Revision=$(cat /proc/cpuinfo | grep 'Revision' | awk '{print $3}')
 rev=$(echo $Revision | sed 's/^1000//')
 echo "Revision        = "$Revision
@@ -48,7 +49,7 @@ echo 'ModelName       = '${ModelName[$((0x$Revision>>4&0xff))]}
 echo 'PCBRevision     = '$((0x$Revision&0xf))
 echo 'MemorySize      = '${MemorySize[$((0x$Revision>>20&7))]}
 echo 'Manufacturer    = '${Manufacturer[$((0x$Revision>>16&0xf))]}
-echo 'Processor       = '${Processor[$((0x$Revision>>12&0xf))]}
+echo 'Processor       = '${Processor[$((0x$Revision>>12&0xf))]}' (given by documentation)'
 if [ $((0x$Revision>>23&1)) = 1 ]; then
 echo 'EncodedFlag     = '${EncodedFlag[1]}
 fi
@@ -71,4 +72,6 @@ awk -F\; -v rev=$rev '{
     }
   }
 }' raspberry_hardware_versions.csv 
+echo 'Processor       = '${Hardware}' (given by /proc/cpuinfo)'
+echo
 
