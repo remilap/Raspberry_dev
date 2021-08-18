@@ -1,0 +1,6 @@
+---
+# file: roles/WebIOPi/vars/main.yml
+
+sudo: yes
+webiopi_version: 0.7.1
+

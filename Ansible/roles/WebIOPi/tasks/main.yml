@@ -1,0 +1,18 @@
+---
+# file: roles/WebIOPi/tasks/main.yml
+# This playbook contains WebIOPi plays that will be run on all nodes.
+
+- name: ...
+  template: src=wpa_supplicant.conf.j2 dest=/etc/wpa_supplicant/wpa_supplicant.conf
+  notify: reboot
+
+- name: Download latest WebIOPi package
+  get_url:
+    url: https://downloads.sourceforge.net/project/webiopi/WebIOPi-{{ webiopi_version }}.tar.gz
+    dest: /tmp
+    mode: 0440
+
+- name: Install the WebIOPi package
+  command: "cd /tmp && tar xzvf WebIOPi-{{ webiopi_version }}.tar.gz && cd WebIOPi-{{ webiopi_version }} && ./setup.sh"
+  #changed_when: "'python-apt is already the newest version.' not in aptget.stdout_lines"
+
