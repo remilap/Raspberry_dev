@@ -2,6 +2,9 @@
 #
 # See https://www.tomshardware.com/how-to/stream-live-video-raspberry-pi
 #
+# To view the stream, you launch VLC and "Media -> Open Network Stream"
+# then fill the URL with: tcp/h264://<IP_address>:5000
+#
 
 array[0]="none"
 array[1]="negative"
