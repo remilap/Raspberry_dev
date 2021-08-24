@@ -113,3 +113,39 @@ fi
 if [ $menu = 10 ]; then
   grep "#NS#" $0 | grep -v "grep #NS#" | cut -c6-
 fi
+
+#NS# Find if the packets manager is running
+#NS# ps faux | egrep "(apt|synaptic|adept|muon|discover)"
+#NS#
+
+#NS# Remove the lock files of packets manager from the following ones
+#NS# sudo rm /var/lib/dpkg/lock-frontend
+#NS# sudo rm /var/lib/apt/lists/lock
+#NS# sudo rm /var/cache/apt/archives/lock
+#NS# sudo rm /var/lib/dpkg/lock
+#NS#
+
+#NS# Reconfigure the aborted packets installation
+#NS# sudo dpkg --configure -a
+#NS# or
+#NS# sudo apt --fix-broken install
+#NS#
+
+#NS# Fix the issue: /var/cache/debconf/config.dat is locked by another process
+#NS# sudo fuser -v /var/cache/debconf/config.dat
+#NS#                        USER        PID ACCESS COMMAND
+#NS#    /var/cache/debconf/config.dat:
+#NS#                        root      24225 F.... frontend
+#NS# then kill the process
+#NS# sudo kill 24225
+#NS#
+
+#NS# Error "Les signatures suivantes ne sont pas valables : EXPKEYSIG 23E7166788B63E1E Yarn Packaging <yarn@dan.cx>"
+#NS# sudo apt-key list
+#NS# sudo apt-key adv --keyserver hkps://keyserver.ubuntu.com --refresh-keys 23E7166788B63E1E
+#NS#
+
+##NS#
+##NS#
+##NS#
+
