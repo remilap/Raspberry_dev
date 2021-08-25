@@ -36,31 +36,33 @@ cd ${tool_dir}
 Hardware=$(cat /proc/cpuinfo | grep 'Hardware' | awk '{print $3}')
 Revision=$(cat /proc/cpuinfo | grep 'Revision' | awk '{print $3}')
 rev=$(echo $Revision | sed 's/^1000//')
-echo "Revision        = "$Revision
+echo "Revision        : "$Revision
 #echo "rev=$rev"
 Serial=$(cat /proc/cpuinfo|grep 'Serial'|awk '{print $3}')
-echo "Serial          = "$Serial
+echo "Serial          : "$Serial
 MACs=$(ifconfig | grep ether | awk '{print $2}')
-echo "MAC address(es) = "$MACs
+echo "MAC address(es) : "$MACs
 Encoded=$((0x$Revision >> 23 & 1))
 
 if [ $Encoded = 1 ]; then
-echo 'ModelName       = '${ModelName[$((0x$Revision>>4&0xff))]}
-echo 'PCBRevision     = '$((0x$Revision&0xf))
-echo 'MemorySize      = '${MemorySize[$((0x$Revision>>20&7))]}
-echo 'Manufacturer    = '${Manufacturer[$((0x$Revision>>16&0xf))]}
-echo 'Processor       = '${Processor[$((0x$Revision>>12&0xf))]}' (given by documentation)'
-if [ $((0x$Revision>>23&1)) = 1 ]; then
-echo 'EncodedFlag     = '${EncodedFlag[1]}
-fi
-if [ $((0x$Revision>>24&1)) = 1 ]; then
-echo 'WarrantyVoidOld = '${WarrantyVoidOld[1]}
-fi
-if [ $((0x$Revision>>25&1)) = 1 ]; then
-echo 'WarrantyVoidNew = '${WarrantyVoidNew[1]}
+  echo 'ModelName       : '${ModelName[$((0x$Revision>>4&0xff))]}
+  echo 'PCBRevision     : '$((0x$Revision&0xf))
+  echo 'MemorySize      : '${MemorySize[$((0x$Revision>>20&7))]}
+  echo 'Manufacturer    : '${Manufacturer[$((0x$Revision>>16&0xf))]}
+  echo 'Processor       : '${Processor[$((0x$Revision>>12&0xf))]}' (given by documentation)'
+  if [ $((0x$Revision>>23&1)) = 1 ]; then
+    echo 'EncodedFlag     : '${EncodedFlag[1]}
+  fi
+  if [ $((0x$Revision>>24&1)) = 1 ]; then
+    echo 'WarrantyVoidOld : '${WarrantyVoidOld[1]}
+  fi
+  if [ $((0x$Revision>>25&1)) = 1 ]; then
+    echo 'WarrantyVoidNew : '${WarrantyVoidNew[1]}
+  fi
+else
+  echo "Old model where the revision does not provide encoded information"
 fi
 echo
-fi
 
 awk -F\; -v rev=$rev '{
   if (NR<=5) {
@@ -72,6 +74,6 @@ awk -F\; -v rev=$rev '{
     }
   }
 }' raspberry_hardware_versions.csv 
-echo 'Processor       = '${Hardware}' (given by /proc/cpuinfo)'
+echo 'Processor       : '${Hardware}' (given by /proc/cpuinfo)'
 echo
 
