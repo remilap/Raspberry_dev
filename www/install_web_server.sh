@@ -1,6 +1,8 @@
 #!/bin/sh
 #
 # See https://raspberry-pi.fr/installer-serveur-web-raspberry-lamp/
+# https://httpd.apache.org/docs/2.4/fr/howto/cgi.html
+# https://ardamis.com/2008/05/26/a-php-script-for-testing-a-mysql-database-connection/
 #
 
 
