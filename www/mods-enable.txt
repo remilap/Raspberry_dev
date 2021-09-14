@@ -1,0 +1,37 @@
+total 8
+drwxr-xr-x 2 root root 4096 Aug 30 14:41 .
+drwxr-xr-x 8 root root 4096 Sep 14 09:04 ..
+lrwxrwxrwx 1 root root   36 Aug 28 21:44 access_compat.load -> ../mods-available/access_compat.load
+lrwxrwxrwx 1 root root   28 Aug 28 21:44 alias.conf -> ../mods-available/alias.conf
+lrwxrwxrwx 1 root root   28 Aug 28 21:44 alias.load -> ../mods-available/alias.load
+lrwxrwxrwx 1 root root   33 Aug 28 21:44 auth_basic.load -> ../mods-available/auth_basic.load
+lrwxrwxrwx 1 root root   33 Aug 28 21:44 authn_core.load -> ../mods-available/authn_core.load
+lrwxrwxrwx 1 root root   33 Aug 28 21:44 authn_file.load -> ../mods-available/authn_file.load
+lrwxrwxrwx 1 root root   33 Aug 28 21:44 authz_core.load -> ../mods-available/authz_core.load
+lrwxrwxrwx 1 root root   33 Aug 28 21:44 authz_host.load -> ../mods-available/authz_host.load
+lrwxrwxrwx 1 root root   33 Aug 28 21:44 authz_user.load -> ../mods-available/authz_user.load
+lrwxrwxrwx 1 root root   32 Aug 28 21:44 autoindex.conf -> ../mods-available/autoindex.conf
+lrwxrwxrwx 1 root root   32 Aug 28 21:44 autoindex.load -> ../mods-available/autoindex.load
+lrwxrwxrwx 1 root root   27 Aug 30 11:13 cgid.conf -> ../mods-available/cgid.conf
+lrwxrwxrwx 1 root root   27 Aug 30 11:13 cgid.load -> ../mods-available/cgid.load
+lrwxrwxrwx 1 root root   30 Aug 28 21:44 deflate.conf -> ../mods-available/deflate.conf
+lrwxrwxrwx 1 root root   30 Aug 28 21:44 deflate.load -> ../mods-available/deflate.load
+lrwxrwxrwx 1 root root   26 Aug 28 21:44 dir.conf -> ../mods-available/dir.conf
+lrwxrwxrwx 1 root root   26 Aug 28 21:44 dir.load -> ../mods-available/dir.load
+lrwxrwxrwx 1 root root   26 Aug 28 21:44 env.load -> ../mods-available/env.load
+lrwxrwxrwx 1 root root   29 Aug 28 21:44 filter.load -> ../mods-available/filter.load
+lrwxrwxrwx 1 root root   27 Aug 28 21:44 mime.conf -> ../mods-available/mime.conf
+lrwxrwxrwx 1 root root   27 Aug 28 21:44 mime.load -> ../mods-available/mime.load
+lrwxrwxrwx 1 root root   34 Aug 28 21:57 mpm_prefork.conf -> ../mods-available/mpm_prefork.conf
+lrwxrwxrwx 1 root root   34 Aug 28 21:57 mpm_prefork.load -> ../mods-available/mpm_prefork.load
+lrwxrwxrwx 1 root root   34 Aug 28 21:44 negotiation.conf -> ../mods-available/negotiation.conf
+lrwxrwxrwx 1 root root   34 Aug 28 21:44 negotiation.load -> ../mods-available/negotiation.load
+lrwxrwxrwx 1 root root   27 Aug 30 14:41 perl.load -> ../mods-available/perl.load
+lrwxrwxrwx 1 root root   29 Aug 28 21:58 php7.3.conf -> ../mods-available/php7.3.conf
+lrwxrwxrwx 1 root root   29 Aug 28 21:58 php7.3.load -> ../mods-available/php7.3.load
+lrwxrwxrwx 1 root root   33 Aug 28 21:44 reqtimeout.conf -> ../mods-available/reqtimeout.conf
+lrwxrwxrwx 1 root root   33 Aug 28 21:44 reqtimeout.load -> ../mods-available/reqtimeout.load
+lrwxrwxrwx 1 root root   31 Aug 28 21:44 setenvif.conf -> ../mods-available/setenvif.conf
+lrwxrwxrwx 1 root root   31 Aug 28 21:44 setenvif.load -> ../mods-available/setenvif.load
+lrwxrwxrwx 1 root root   29 Aug 28 21:44 status.conf -> ../mods-available/status.conf
+lrwxrwxrwx 1 root root   29 Aug 28 21:44 status.load -> ../mods-available/status.load

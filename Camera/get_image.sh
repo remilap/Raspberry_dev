@@ -1,11 +1,18 @@
 #!/bin/sh
 
-cd /home/pi/Raspberry_dev/Camera
+devCameraDir=/home/pi/Raspberry_dev/Camera
+destImageDir=/var/lib/motion
+destImageDir=/home/pi/maison
+
+cd $devCameraDir
 python cam01.py
 
-cd /home/pi/Raspberry_dev/Camera
+cd $devCameraDir
 imgFile=`/bin/ls image*`
 if [ "$imgFile" != "" ]; then
-  mv $imgFile /var/lib/motion
+  if [ ! -d $destImageDir ]; then
+    sudo mkdir $destImageDir
+  fi
+  mv $imgFile $destImageDir
 fi
 

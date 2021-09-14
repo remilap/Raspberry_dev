@@ -16,7 +16,7 @@ print('<body> <h1>Perros-Guirec Lapointe</h1>')
 
 # recherche derniere image de la webcam
 d = "/var/lib/motion/"
-#d = "maison/"
+d = "/home/pi/maison/"
 prev = ""
 for name in os.listdir(d):
   if os.path.isfile(os.path.join(d, name)):
