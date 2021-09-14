@@ -1,0 +1,17 @@
+AuthName "Page principale restreinte"
+AuthType Basic
+AuthBasicProvider file
+AuthUserFile "/var/www/html/admin/.main.htpasswd"
+#AuthUserFile "/var/www/html/.htpasswd"
+Require valid-user
+
+#SSLOptions +StrictRequire
+#SSLRequireSSL
+#SSLRequire %{HTTP_HOST} eq "77.192.99.60"
+
+#ErrorDocument 403 /blog/error_redirect.php
+
+#<Files /error_redirect.php>
+#  AuthType none
+#</Files>
+

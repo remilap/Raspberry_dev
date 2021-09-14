@@ -1,0 +1,9 @@
+total 8
+drwxr-xr-x 2 root root 4096 Aug 28 22:29 .
+drwxr-xr-x 8 root root 4096 Sep 14 09:04 ..
+lrwxrwxrwx 1 root root   30 Aug 28 21:44 charset.conf -> ../conf-available/charset.conf
+lrwxrwxrwx 1 root root   44 Aug 28 21:44 localized-error-pages.conf -> ../conf-available/localized-error-pages.conf
+lrwxrwxrwx 1 root root   46 Aug 28 21:44 other-vhosts-access-log.conf -> ../conf-available/other-vhosts-access-log.conf
+lrwxrwxrwx 1 root root   33 Aug 28 22:29 phpmyadmin.conf -> ../conf-available/phpmyadmin.conf
+lrwxrwxrwx 1 root root   31 Aug 28 21:44 security.conf -> ../conf-available/security.conf
+lrwxrwxrwx 1 root root   36 Aug 28 21:44 serve-cgi-bin.conf -> ../conf-available/serve-cgi-bin.conf
