@@ -49,7 +49,7 @@ EOF
 fi
 
 # Add some packages
-list="python-pip git python-dev sshpass byobu"
+list="python3-pip git python3-dev sshpass byobu"
 sudo apt-get install ${list}
 
 # Add Raspberry_dev git project

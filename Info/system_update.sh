@@ -9,10 +9,11 @@
 # 2017-10-05 - R. Lapointe    - Remove purge-old-kernels command (not found)
 # 2021-08-24 - R. Lapointe    - Replace apt-get by apt
 # 2021-08-24 - R. Lapointe    - Manage the OS upgrade to Debian buster
+# 2021-11-09 - R. Lapointe    - Manage the OS upgrade to Debian bullseye
 ################################################################################
 
 sfile=/etc/apt/sources.list
-rel="buster"
+rel="bullseye"
 cur=$(grep "^deb.*raspbian" $sfile | awk '{print $3}')
 if [ "$cur" = "" ]; then
   echo "===== ERROR: unable to find the current version of Debian"
