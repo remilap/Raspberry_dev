@@ -2,6 +2,7 @@
 #
 # Current Revision bit fields explanation
 # https://raspberrypi.stackexchange.com/questions/100076/what-revisions-does-cat-proc-cpuinfo-return-on-the-new-pi-4-1-2-4gb
+# https://github.com/AndrewFromMelbourne/raspberry_pi_revision
 #
 # Bit NOs  3322 2222 2222 1111 1111 1100 0000 0000
 # Decimal  1098 7654 3210 9876 5432 1098 7654 3210
@@ -14,7 +15,7 @@
 # R 00-03
           PCBRevision=('0' '1' '2' '3' '4' '5' '6' '7' '8' '9' '10' '11' '12' '13' '14' '15')
 # T 04-11
-          ModelName=('A' 'B' 'A+' 'B+' 'Pi2B' 'Alpha' 'CM1' 'unknown' 'Pi3B' 'Zero' 'CM3' 'unknown' 'Zero W' 'Pi3B+' 'Pi3A+' 'internal use only' 'CM3+' '4B')
+          ModelName=('A' 'B' 'A+' 'B+' '2B' 'Alpha' 'CM1' 'unknown' '3B' 'Zero' 'CM3' 'unknown' 'Zero W' '3B+' '3A+' 'internal use only' 'CM3+' '4' 'Zero 2 W' 'CM4' '400')
 # P 12-15
           Processor=('BCM2835' 'BCM2836' 'BCM2837' 'BCM2711')
 # C 16-19
