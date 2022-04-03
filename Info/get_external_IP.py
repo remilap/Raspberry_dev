@@ -12,7 +12,11 @@ debug = 0
 cmde = "wget http://checkip.dyndns.org/ -O - -o /dev/null | cut -d: -f 2 | cut -d\< -f 1 | awk '{print $1}' | head -n 1"
 sortie = os.popen(cmde, "r").read().rstrip()
 if debug:
-    print('Resultat: >{s}<'.format(sortie))
+    print("Resultat: >{0:s}<".format(sortie))
+
+if not sortie:
+    print("Resultat vide, on ne fait rien")
+    exit()
 
 fnIPaddr = "/home/pi/latest_external_IP_addr.txt"
 
@@ -21,11 +25,11 @@ try:
     contenu = fm.read()
     fm.close()
     if debug:
-        print('contenu du fichier {s}: >{s}<'.format(fnIPaddr, contenu))
+        print("contenu du fichier {0:s}: >{1:s}<".format(fnIPaddr, contenu))
 except:
     contenu = 0
     if debug:
-        print('fichier {s} inexistant => contenu = 0'.format(fnIPaddr))
+        print("fichier {0:s} inexistant => contenu = 0".format(fnIPaddr))
 
 if sortie != contenu:
     # write last IP addr in a file
