@@ -37,19 +37,19 @@ def write_csv(t):
 fnlow = '/home/pi/sms_low_temp_date.txt'
 
 def analyze(t):
-    contenu = 0
+    contenu = 0.0
     try:
         fm = open(fnlow, 'r')
         try:
            contenu = fm.read()
            print('contenu du fichier ' + fnlow + ' : ' + contenu)
         except:
-           contenu = 0
+           contenu = 0.0
            print('erreur de lecture du fichier ' + fnlow + ' => contenu = 0')
         finally:
             fm.close()
     except:
-        contenu = 0
+        contenu = 0.0
         print('fichier ' + fnlow + ' inexistant => contenu = 0')
 
     contenu = float(contenu)
