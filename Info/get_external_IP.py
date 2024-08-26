@@ -18,7 +18,8 @@ if not sortie:
     print("Resultat vide, on ne fait rien")
     exit()
 
-fnIPaddr = "/home/pi/latest_external_IP_addr.txt"
+homeDir = os.path.expanduser("~")
+fnIPaddr = homeDir + "/latest_external_IP_addr.txt"
 
 try:
     fm = open(fnIPaddr, 'r')

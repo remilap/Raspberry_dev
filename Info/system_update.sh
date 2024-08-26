@@ -14,18 +14,19 @@
 
 sfile=/etc/apt/sources.list
 rel="bullseye"
-cur=$(grep "^deb.*raspbian" $sfile | awk '{print $3}')
-if [ "$cur" = "" ]; then
+rel="bookworm"
+cur=$(grep "^deb.*bian" ${sfile} | head -n 1 | awk '{print $3}')
+if [ "${cur}" = "" ]; then
   echo "===== ERROR: unable to find the current version of Debian"
-  echo "please see current content of $sfile"
-  cat $sfile
+  echo "please see current content of ${sfile}"
+  cat ${sfile}
   exit 1
 fi
-echo "===== Current Debian version is $cur"
+echo "===== Current Debian version is ${cur}"
 
-if [ "$cur" != "$rel" ]; then
-  echo "===== Upgrade Debian version from $cur to $rel"
-  find /etc/apt -type f -exec grep $cur {} \; -exec sudo sed -i s/$cur/$rel/ {} \; -print
+if [ "${cur}" != "${rel}" ]; then
+  echo "===== Upgrade Debian version from ${cur} to ${rel}"
+  find /etc/apt -type f -exec grep ${cur} {} \; -exec sudo sed -i s/${cur}/${rel}/ {} \; -print
 fi
 
 cmd_list="update dist-upgrade upgrade autoremove clean"
